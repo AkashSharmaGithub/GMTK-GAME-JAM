@@ -42,8 +42,10 @@ public class CollisionHandler : MonoBehaviour
         //temp.setvalue(num._number);
         if (temp.numberplate != null)
         {
-            temp.numberplate.gameObject.SetActive(true);
-            opposite.numberplate.gameObject.SetActive(true);
+            temp.numberplate.activateBtn();
+            //temp.numberplate.gameObject.SetActive(true);
+            opposite.numberplate.activateBtn();
+           // opposite.numberplate.gameObject.SetActive(true);
             temp.setNumberPlate(numberPlate);
             //set the value of box 
             numberPlate = calculate.getOppositeNumberBox(temp.number, initializer.numberPlates);

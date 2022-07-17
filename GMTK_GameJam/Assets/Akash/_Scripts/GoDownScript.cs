@@ -7,18 +7,27 @@ public class GoDownScript : MonoBehaviour
     private bool canButtonGoDown,isButtonDown;
     private Vector3 startingPos;
     private float moveY=0.8f;
-
+    [SerializeField]
+    private GameObject btn;
+    private void Awake()
+    {
+        startingPos = btn.transform.position;
+    }
     private void OnEnable()
     {
-        startingPos= transform.position;
-        isButtonDown = false;
+
+          btn.transform.position=startingPos;
+          isButtonDown = false;
+        
+    
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("face") )
+        if (other.gameObject.CompareTag("face") && isButtonDown==false)
             {
             Debug.Log("Player Entered");
-          
+            LeanTween.moveY(btn, -moveY, 0.2f);
             isButtonDown=true;
         }
     }
@@ -32,10 +41,11 @@ public class GoDownScript : MonoBehaviour
     //}
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.CompareTag("face"))
+        if(other.gameObject.CompareTag("face") && isButtonDown == true)
         {
             Debug.Log("Player moved");
-           
+            LeanTween.moveY(btn, startingPos.y, 0.2f);
+       
             isButtonDown = false;
         }
         

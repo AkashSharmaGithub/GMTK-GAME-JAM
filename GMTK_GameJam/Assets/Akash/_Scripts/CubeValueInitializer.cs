@@ -15,13 +15,13 @@ public class CubeValueInitializer:MonoBehaviour
     {
         faces = CubeManager.Instance.GetComponentsInChildren<Face>();
         getNumberPlates(numberPlateParent);
+        initialiseNumberPlate();
         addFaceAsValueAndFacingTowardsAsKeyToDictionary(faces);
         
         
         setInitialCubeFaceValues(faces);
         
         setNumberForOppsiteFacesWithNumbers();
-        
         addNumberPlatesToFacesWithNumberDuringStartOfGame();
     }
 
@@ -46,7 +46,16 @@ public class CubeValueInitializer:MonoBehaviour
             faces[i].setInitialValues();
         }
     }
+    public void initialiseNumberPlate()
+    {
+        for (int i = 0; i < numberPlates.Length; i++)
+        {
+            numberPlates[i].activateBtn();
 
+
+
+        }
+    }
     private void addNumberPlatesToFacesWithNumberDuringStartOfGame()
     {
         for (int i = 0; i < faces.Length; i++)
@@ -70,6 +79,7 @@ public class CubeValueInitializer:MonoBehaviour
                 
 
             }
+
         }
     }
     private void setNumberForOppsiteFacesWithNumbers()
