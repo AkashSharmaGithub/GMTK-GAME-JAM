@@ -14,7 +14,8 @@ public class WinButton : MonoBehaviour
     private bool _canWin=false;
     private void OnEnable()
     {
-        _numberplates= _numberPlateParent.GetComponentsInChildren<NumberPlate>();
+        _numberPlateParent = GameObject.FindGameObjectWithTag("numberPlateHolder").transform;
+        _numberplates = _numberPlateParent.GetComponentsInChildren<NumberPlate>();
         deactivateBtn();
        
     }

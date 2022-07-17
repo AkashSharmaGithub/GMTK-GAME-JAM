@@ -57,11 +57,11 @@ public class Face : MonoBehaviour
     }
     public void setNumberPlate(NumberPlate plate)
     {
-        this._numberplate = plate;
+        _numberplate = plate;
         number = _numberplate.number;
+        _numberplate.deactivateBtn();
         _text.text = number.ToString();
         _text.gameObject.SetActive(true);
-        this._numberplate.deactivateBtn();
     }
 
 }

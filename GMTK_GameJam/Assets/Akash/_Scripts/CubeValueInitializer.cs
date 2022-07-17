@@ -20,8 +20,9 @@ public class CubeValueInitializer:MonoBehaviour
         
         
         setInitialCubeFaceValues(faces);
-        
         setNumberForOppsiteFacesWithNumbers();
+        
+        
         addNumberPlatesToFacesWithNumberDuringStartOfGame();
     }
 

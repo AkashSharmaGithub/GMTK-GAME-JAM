@@ -26,21 +26,12 @@ public class CubeManager : MonoBehaviour
     private void OnEnable()
     {
         collisionHandler.subscribeToCollisionAction();
-          
-     
       
-        
     }
     private void OnDisable()
     {
        collisionHandler.unSuscribeToCollisionAction();
         
     }
-   
-   
 
-    
-  
-  
- 
 }

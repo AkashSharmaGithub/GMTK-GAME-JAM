@@ -41,7 +41,7 @@ public class PlayerMovementComponent : MonoBehaviour
         for (int i=0; i<90/_rollSpeed;i++)
         {
             transform.RotateAround(anchor, axis, _rollSpeed);
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.001f);
         }
         _isMoving=false;
     }
