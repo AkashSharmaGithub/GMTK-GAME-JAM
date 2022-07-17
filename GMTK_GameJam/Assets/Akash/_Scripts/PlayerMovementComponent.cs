@@ -7,6 +7,7 @@ public class PlayerMovementComponent : MonoBehaviour
     [SerializeField]private float _rollSpeed;
     private InputHandlerScript _inputhandler;
     private bool _isMoving;
+    public static System.Action onPlayerMoved;
 
     private void OnEnable()
     {
@@ -36,7 +37,8 @@ public class PlayerMovementComponent : MonoBehaviour
     IEnumerator Roll(Vector3 anchor ,Vector3 axis)
     {
         _isMoving=true;
-        for(int i=0; i<90/_rollSpeed;i++)
+        onPlayerMoved?.Invoke();
+        for (int i=0; i<90/_rollSpeed;i++)
         {
             transform.RotateAround(anchor, axis, _rollSpeed);
             yield return new WaitForSeconds(0.01f);

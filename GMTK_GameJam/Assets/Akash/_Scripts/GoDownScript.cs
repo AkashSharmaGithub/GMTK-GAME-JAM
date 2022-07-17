@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(AudioSource))]
 public class GoDownScript : MonoBehaviour
 {
+    private AudioSource _clickAudio;
     private bool canButtonGoDown,isButtonDown;
     private Vector3 startingPos;
     private float moveY=0.8f;
@@ -12,7 +13,9 @@ public class GoDownScript : MonoBehaviour
     private void Awake()
     {
         startingPos = btn.transform.position;
-    }
+       _clickAudio=GetComponent<AudioSource>();
+        
+}
     private void OnEnable()
     {
 
@@ -26,6 +29,7 @@ public class GoDownScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("face") && isButtonDown==false)
             {
+            _clickAudio.Play();
             Debug.Log("Player Entered");
             LeanTween.moveY(btn, -moveY, 0.2f);
             isButtonDown=true;
@@ -45,7 +49,7 @@ public class GoDownScript : MonoBehaviour
         {
             Debug.Log("Player moved");
             LeanTween.moveY(btn, startingPos.y, 0.2f);
-       
+            _clickAudio.Play();
             isButtonDown = false;
         }
         

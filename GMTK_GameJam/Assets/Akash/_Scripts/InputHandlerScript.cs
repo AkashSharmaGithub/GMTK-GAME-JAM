@@ -10,19 +10,19 @@ public class InputHandlerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.UpArrow)||Input.GetKey(KeyCode.W))
+        if(Input.GetKeyDown(KeyCode.UpArrow)||Input.GetKeyDown(KeyCode.W))
         {
             onUpButtonClicked?.Invoke(Vector3.forward);
         }
-        if(Input.GetKey(KeyCode.DownArrow)||Input.GetKey(KeyCode.S))
+        if(Input.GetKeyDown(KeyCode.DownArrow)||Input.GetKeyDown(KeyCode.S))
         {
             onDownButtonClicked?.Invoke(Vector3.back);
         }
-        if(Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.A))
+        if(Input.GetKeyDown(KeyCode.LeftArrow)||Input.GetKeyDown(KeyCode.A))
         {
             onLeftButtonClicked?.Invoke(Vector3.left);
         }
-        if(Input.GetKey(KeyCode.RightArrow)||Input.GetKey(KeyCode.D))
+        if(Input.GetKeyDown(KeyCode.RightArrow)||Input.GetKeyDown(KeyCode.D))
         {
             onRightButtonClicked?.Invoke(Vector3.right);
         }

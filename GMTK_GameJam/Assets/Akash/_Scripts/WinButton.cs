@@ -16,6 +16,7 @@ public class WinButton : MonoBehaviour
     {
         _numberplates= _numberPlateParent.GetComponentsInChildren<NumberPlate>();
         deactivateBtn();
+       
     }
     public void activateBtn()
     {
@@ -59,6 +60,7 @@ public class WinButton : MonoBehaviour
     {
         if(other.gameObject.CompareTag("face") && _isActive)
         {
+            LevelManager.instance.onPlayerWon?.Invoke();
             Debug.Log("Player Touched the Win BTN");
         }
     }
