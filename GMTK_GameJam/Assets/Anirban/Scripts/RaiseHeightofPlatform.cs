@@ -4,22 +4,11 @@ using UnityEngine;
 
 public class RaiseHeightofPlatform : MonoBehaviour
 {
-    private Vector3 pos;
     public float moveSpeed;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    float timeToReach;
+    private void OnEnable()
     {
-        pos = this.transform.position;
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(transform.position.y <= 0)
-        {
-            pos.y += moveSpeed;
-        }
-        transform.position = pos;   
+        LeanTween.moveLocalY(gameObject, 0, timeToReach).setEase(LeanTweenType.easeInSine);
     }
 }
