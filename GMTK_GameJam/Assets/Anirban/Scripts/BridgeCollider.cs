@@ -7,7 +7,8 @@ public class BridgeCollider : MonoBehaviour
     [Header("GameObjects")]
     [SerializeField]
     GameObject piller_of_Tower;
-
+    [SerializeField,Range(0,10f)]
+    private float timeToRotate;
     private Vector3 pos;
     //private float x, y, z;
     private void Start()
@@ -24,12 +25,14 @@ public class BridgeCollider : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            float y= piller_of_Tower.transform.rotation.eulerAngles.y;
             // Debug.Log("Something Happened!");
-            pos.y += 90f;
+            LeanTween.rotateY(piller_of_Tower, y+90f, timeToRotate);
+            //pos.y += 90f;
         }
     }
     private void Update()
     {
-        piller_of_Tower.transform.eulerAngles = pos;
+        //piller_of_Tower.transform.eulerAngles = pos;
     }
 }

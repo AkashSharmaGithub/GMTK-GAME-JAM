@@ -30,10 +30,7 @@ public class Face : MonoBehaviour
     }
     public int number { get; private set; } =-1;
 
-    private void OnEnable()
-    {
-        
-    }
+    
     public void setInitialValues()
     {
         number=int.Parse(text.text);
