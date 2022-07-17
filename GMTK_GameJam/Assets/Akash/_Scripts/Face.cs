@@ -61,7 +61,7 @@ public class Face : MonoBehaviour
         number = _numberplate.number;
         _text.text = number.ToString();
         _text.gameObject.SetActive(true);
-        this._numberplate.gameObject.SetActive(false);
+        this._numberplate.deactivateBtn();
     }
 
 }
